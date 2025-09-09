@@ -8,14 +8,6 @@ namespace FindMyWord
 {
     internal class Program
     {
-        //reading folder and return list of fils
-        static List<string> Read(string path)
-        {
-            List<string> files = Directory.GetFiles(path).ToList();
-            if (files == null)
-                throw new Exception("File is empty");
-            return files;
-        }
         //this class to store the value of the dictionary
         class ValueInfo
         {
@@ -31,8 +23,22 @@ namespace FindMyWord
                 }
             }
         }
+
         // dictionary to store preprocessed data
         static Dictionary<string, ValueInfo> dic = new Dictionary<string, ValueInfo>();
+
+
+
+
+        //reading folder and return list of fils
+        static List<string> Read(string path)
+        {
+            List<string> files = Directory.GetFiles(path).ToList();
+            if (files == null)
+                throw new Exception("File is empty");
+            return files;
+        }
+       
         //print the result
         static void print(string word)
         {
@@ -89,7 +95,7 @@ namespace FindMyWord
             
             return sb.ToString();
         }
-
+       
         static void PreProcess(List<string> files)
         {
 
@@ -130,8 +136,7 @@ namespace FindMyWord
             }
         }
 
-
-            
+    
             static void Main(string[] args)
             {
             Console.WriteLine("enter the path of the folder without \" \"");
